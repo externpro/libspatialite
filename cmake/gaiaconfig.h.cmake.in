@@ -1,67 +1,69 @@
+/* @GAIACONFIG_H_COMMENT@ */
+/* ./cmake/gaiaconfig.h.cmake.in - copied, modified from gaiaconfig.h.in, manually maintained */
 /* ./src/headers/spatialite/gaiaconfig.h.in - manually maintained */
 
 /* Should be defined in order to enable GCP support. */
-#undef ENABLE_GCP
+#@DEFINE_ENABLE_GCP@ ENABLE_GCP
 
 /* Should be defined in order to enable GeoPackage support. */
-#undef ENABLE_GEOPACKAGE
+#@DEFINE_ENABLE_GEOPACKAGE@ ENABLE_GEOPACKAGE
 
 /* Should be defined in order to enable LIBXML2 support. */
-#undef ENABLE_LIBXML2
+#@DEFINE_ENABLE_LIBXML2@ ENABLE_LIBXML2
 
 /* Should be defined in order to enable MiniZIP support. */
-#undef ENABLE_MINIZIP
+#@DEFINE_ENABLE_MINIZIP@ ENABLE_MINIZIP
 
 /* Should be defined in order to enable RTTOPO support. */
-#undef ENABLE_RTTOPO
+#@DEFINE_ENABLE_RTTOPO@ ENABLE_RTTOPO
 
 /* Should be defined in order to enable GEOS_370 support. */
-#undef GEOS_370
+#@DEFINE_GEOS_370@ GEOS_370
 
 /* Should be defined in order to enable GEOS_3100 support. */
-#undef GEOS_3100
+#@DEFINE_GEOS_3100@ GEOS_3100
 
 /* Should be defined in order to enable GEOS_3110 support. */
-#undef GEOS_3110
+#@DEFINE_GEOS_3110@ GEOS_3110
 
 /* Should be defined in order to enable GEOS_ADVANCED support. */
-#undef GEOS_ADVANCED
+#@DEFINE_GEOS_ADVANCED@ GEOS_ADVANCED
 
 /* Should be defined in order to fully disable GEOS non-thread-safe API. */
-#undef GEOS_ONLY_REENTRANT
+#@DEFINE_GEOS_ONLY_REENTRANT@ GEOS_ONLY_REENTRANT
 
 /* Should be defined in order to enable GEOS_REENTRANT (fully thread-safe). */
-#undef GEOS_REENTRANT
+#@DEFINE_GEOS_REENTRANT@ GEOS_REENTRANT
 
 /* Should be defined in order to disable EPSG full support. */
-#undef OMIT_EPSG
+#@DEFINE_OMIT_EPSG@ OMIT_EPSG
 
 /* Should be defined in order to disable FREEXL support. */
-#undef OMIT_FREEXL
+#@DEFINE_OMIT_FREEXL@ OMIT_FREEXL
 
 /* Should be defined in order to disable GEOCALLBACKS support. */
-#undef OMIT_GEOCALLBACKS
+#@DEFINE_OMIT_GEOCALLBACKS@ OMIT_GEOCALLBACKS
 
 /* Should be defined in order to disable GEOS support. */
-#undef OMIT_GEOS
+#@DEFINE_OMIT_GEOS@ OMIT_GEOS
 
 /* Should be defined in order to disable ICONV support. */
-#undef OMIT_ICONV
+#@DEFINE_OMIT_ICONV@ OMIT_ICONV
 
 /* Should be defined in order to disable KNN support. */
-#undef OMIT_KNN
+#@DEFINE_OMIT_KNN@ OMIT_KNN
 
 /* Should be defined in order to disable MATHSQL support. */
-#undef OMIT_MATHSQL
+#@DEFINE_OMIT_MATHSQL@ OMIT_MATHSQL
 
 /* Should be defined in order to disable PROJ.4 support. */
-#undef OMIT_PROJ
+#@DEFINE_OMIT_PROJ@ OMIT_PROJ
 
 /* Should be defined in order to enable PROJ.6 support. */
-#undef PROJ_NEW
+#@DEFINE_PROJ_NEW@ PROJ_NEW
 
 /* Should contain a text-string describing the intended target CPU */
-#undef SPATIALITE_TARGET_CPU
+#cmakedefine SPATIALITE_TARGET_CPU "@SPATIALITE_TARGET_CPU@"
 
 /* the Version of this package */
-#undef SPATIALITE_VERSION
+#cmakedefine SPATIALITE_VERSION "@SPATIALITE_VERSION@"

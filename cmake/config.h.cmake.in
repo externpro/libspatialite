@@ -1,198 +1,200 @@
+/* @CONFIG_H_COMMENT@ */
+/* ./cmake/config.h.cmake.in - copied, modified from config.h.in, manually maintained */
 /* ./config.h.in - manually maintained */
 
 /* depending on SQLite library version. */
-#undef HAVE_DECL_SQLITE_INDEX_CONSTRAINT_LIKE
+#@DEFINE_HAVE_DECL_SQLITE_INDEX_CONSTRAINT_LIKE@ HAVE_DECL_SQLITE_INDEX_CONSTRAINT_LIKE
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-#undef HAVE_DLFCN_H
+#@DEFINE_HAVE_DLFCN_H@ HAVE_DLFCN_H
 
 /* Define to 1 if you have the <fcntl.h> header file. */
-#undef HAVE_FCNTL_H
+#@DEFINE_HAVE_FCNTL_H@ HAVE_FCNTL_H
 
 /* Define to 1 if you have the `fdatasync' function. */
-#undef HAVE_FDATASYNC
+#@DEFINE_HAVE_FDATASYNC@ HAVE_FDATASYNC
 
 /* Define to 1 if you have the <float.h> header file. */
-#undef HAVE_FLOAT_H
+#@DEFINE_HAVE_FLOAT_H@ HAVE_FLOAT_H
 
 /* Define to 1 if you have the <freexl.h> header file. */
-#undef HAVE_FREEXL_H
+#@DEFINE_HAVE_FREEXL_H@ HAVE_FREEXL_H
 
 /* Define to 1 if you have the `ftruncate' function. */
-#undef HAVE_FTRUNCATE
+#@DEFINE_HAVE_FTRUNCATE@ HAVE_FTRUNCATE
 
 /* Define to 1 if you have the <geos_c.h> header file. */
-#undef HAVE_GEOS_C_H
+#@DEFINE_HAVE_GEOS_C_H@ HAVE_GEOS_C_H
 
 /* Define to 1 if you have the `getcwd' function. */
-#undef HAVE_GETCWD
+#@DEFINE_HAVE_GETCWD@ HAVE_GETCWD
 
 /* Define to 1 if you have the `gettimeofday' function. */
-#undef HAVE_GETTIMEOFDAY
+#@DEFINE_HAVE_GETTIMEOFDAY@ HAVE_GETTIMEOFDAY
 
 /* Define to 1 if you have the <iconv.h> header file. */
-#undef HAVE_ICONV_H
+#@DEFINE_HAVE_ICONV_H@ HAVE_ICONV_H
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#undef HAVE_INTTYPES_H
+#@DEFINE_HAVE_INTTYPES_H@ HAVE_INTTYPES_H
 
 /* Define to 1 if you have the <librttopo.h> header file. */
-#undef HAVE_LIBRTTOPO_H
+#@DEFINE_HAVE_LIBRTTOPO_H@ HAVE_LIBRTTOPO_H
 
 /* Define to 1 if you have the `sqlite3' library (-lsqlite3). */
-#undef HAVE_LIBSQLITE3
+#@DEFINE_HAVE_LIBSQLITE3@ HAVE_LIBSQLITE3
 
 /* Define to 1 if you have the `z' library (-lz). */
-#undef HAVE_LIBZ
+#@DEFINE_HAVE_LIBZ@ HAVE_LIBZ
 
 /* Define to 1 if you have the `localtime_r' function. */
-#undef HAVE_LOCALTIME_R
+#@DEFINE_HAVE_LOCALTIME_R@ HAVE_LOCALTIME_R
 
 /* Define to 1 if `lstat' has the bug that it succeeds when given the
    zero-length file name argument. */
-#undef HAVE_LSTAT_EMPTY_STRING_BUG
+#@DEFINE_HAVE_LSTAT_EMPTY_STRING_BUG@ HAVE_LSTAT_EMPTY_STRING_BUG
 
 /* Define to 1 if you have the <math.h> header file. */
-#undef HAVE_MATH_H
+#@DEFINE_HAVE_MATH_H@ HAVE_MATH_H
 
 /* Define to 1 if you have the `memmove' function. */
-#undef HAVE_MEMMOVE
+#@DEFINE_HAVE_MEMMOVE@ HAVE_MEMMOVE
 
 /* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
+#@DEFINE_HAVE_MEMORY_H@ HAVE_MEMORY_H
 
 /* Define to 1 if you have the `memset' function. */
-#undef HAVE_MEMSET
+#@DEFINE_HAVE_MEMSET@ HAVE_MEMSET
 
 /* Define to 1 if you have the <minizip/unzip.h> header file. */
-#undef HAVE_MINIZIP_UNZIP_H
+#@DEFINE_HAVE_MINIZIP_UNZIP_H@ HAVE_MINIZIP_UNZIP_H
 
 /* Define to 1 if you have the <proj_api.h> header file. */
-#undef HAVE_PROJ_API_H
+#@DEFINE_HAVE_PROJ_API_H@ HAVE_PROJ_API_H
 
 /* Define to 1 if you have the <proj.h> header file. */
-#undef HAVE_PROJ_H
+#@DEFINE_HAVE_PROJ_H@ HAVE_PROJ_H
 
 /* Define to 1 if you have the <sqlite3ext.h> header file. */
-#undef HAVE_SQLITE3EXT_H
+#@DEFINE_HAVE_SQLITE3EXT_H@ HAVE_SQLITE3EXT_H
 
 /* Define to 1 if you have the <sqlite3.h> header file. */
-#undef HAVE_SQLITE3_H
+#@DEFINE_HAVE_SQLITE3_H@ HAVE_SQLITE3_H
 
 /* Define to 1 if you have the `sqrt' function. */
-#undef HAVE_SQRT
+#@DEFINE_HAVE_SQRT@ HAVE_SQRT
 
 /* Define to 1 if `stat' has the bug that it succeeds when given the
    zero-length file name argument. */
-#undef HAVE_STAT_EMPTY_STRING_BUG
+#@DEFINE_HAVE_STAT_EMPTY_STRING_BUG@ HAVE_STAT_EMPTY_STRING_BUG
 
 /* Define to 1 if you have the <stddef.h> header file. */
-#undef HAVE_STDDEF_H
+#@DEFINE_HAVE_STDDEF_H@ HAVE_STDDEF_H
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#undef HAVE_STDINT_H
+#@DEFINE_HAVE_STDINT_H@ HAVE_STDINT_H
 
 /* Define to 1 if you have the <stdio.h> header file. */
-#undef HAVE_STDIO_H
+#@DEFINE_HAVE_STDIO_H@ HAVE_STDIO_H
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#undef HAVE_STDLIB_H
+#@DEFINE_HAVE_STDLIB_H@ HAVE_STDLIB_H
 
 /* Define to 1 if you have the `strcasecmp' function. */
-#undef HAVE_STRCASECMP
+#@DEFINE_HAVE_STRCASECMP@ HAVE_STRCASECMP
 
 /* Define to 1 if you have the `strerror' function. */
-#undef HAVE_STRERROR
+#@DEFINE_HAVE_STRERROR@ HAVE_STRERROR
 
 /* Define to 1 if you have the `strftime' function. */
-#undef HAVE_STRFTIME
+#@DEFINE_HAVE_STRFTIME@ HAVE_STRFTIME
 
 /* Define to 1 if you have the <strings.h> header file. */
-#undef HAVE_STRINGS_H
+#@DEFINE_HAVE_STRINGS_H@ HAVE_STRINGS_H
 
 /* Define to 1 if you have the <string.h> header file. */
-#undef HAVE_STRING_H
+#@DEFINE_HAVE_STRING_H@ HAVE_STRING_H
 
 /* Define to 1 if you have the `strncasecmp' function. */
-#undef HAVE_STRNCASECMP
+#@DEFINE_HAVE_STRNCASECMP@ HAVE_STRNCASECMP
 
 /* Define to 1 if you have the `strstr' function. */
-#undef HAVE_STRSTR
+#@DEFINE_HAVE_STRSTR@ HAVE_STRSTR
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
+#@DEFINE_HAVE_SYS_STAT_H@ HAVE_SYS_STAT_H
 
 /* Define to 1 if you have the <sys/time.h> header file. */
-#undef HAVE_SYS_TIME_H
+#@DEFINE_HAVE_SYS_TIME_H@ HAVE_SYS_TIME_H
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#undef HAVE_SYS_TYPES_H
+#@DEFINE_HAVE_SYS_TYPES_H@ HAVE_SYS_TYPES_H
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#@DEFINE_HAVE_UNISTD_H@ HAVE_UNISTD_H
 
 /* Define to 1 if you have the <zlib.h> header file. */
-#undef HAVE_ZLIB_H
+#@DEFINE_HAVE_ZLIB_H@ HAVE_ZLIB_H
 
 /* Define to 1 if `lstat' dereferences a symlink specified with a trailing
    slash. */
-#undef LSTAT_FOLLOWS_SLASHED_SYMLINK
+#@DEFINE_LSTAT_FOLLOWS_SLASHED_SYMLINK@ LSTAT_FOLLOWS_SLASHED_SYMLINK
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
-#undef LT_OBJDIR
+#cmakedefine LT_OBJDIR "@LT_OBJDIR@"
 
 /* Must be defined in order to disable debug mode. */
-#undef NDEBUG
+#cmakedefine NDEBUG @NDEBUG@
 
 /* Define to the address where bug reports for this package should be sent. */
-#undef PACKAGE_BUGREPORT
+#cmakedefine PACKAGE_BUGREPORT "@PACKAGE_BUGREPORT@"
 
 /* Define to the full name of this package. */
-#undef PACKAGE_NAME
+#cmakedefine PACKAGE_NAME "@PACKAGE_NAME@"
 
 /* Define to the full name and version of this package. */
-#undef PACKAGE_STRING
+#cmakedefine PACKAGE_STRING "@PACKAGE_STRING@"
 
 /* Define to the one symbol short name of this package. */
-#undef PACKAGE_TARNAME
+#cmakedefine PACKAGE_TARNAME "@PACKAGE_TARNAME@"
 
 /* Define to the home page for this package. */
-#undef PACKAGE_URL
+#cmakedefine PACKAGE_URL "@PACKAGE_URL@"
 
 /* Define to the version of this package. */
-#undef PACKAGE_VERSION
+#cmakedefine PACKAGE_VERSION "@PACKAGE_VERSION@"
 
 /* Define to 1 if you have the ANSI C header files. */
-#undef STDC_HEADERS
+#@DEFINE_STDC_HEADERS@ STDC_HEADERS
 
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
-#undef TIME_WITH_SYS_TIME
+#@DEFINE_TIME_WITH_SYS_TIME@ TIME_WITH_SYS_TIME
 
 /* Define to 1 if your <sys/time.h> declares `struct tm'. */
-#undef TM_IN_SYS_TIME
+#@DEFINE_TM_IN_SYS_TIME@ TM_IN_SYS_TIME
 
 /* Must be =64 in order to enable huge-file support. */
-#undef _FILE_OFFSET_BITS
+#cmakedefine _FILE_OFFSET_BITS @_FILE_OFFSET_BITS@
 
 /* Must be defined in order to enable huge-file support. */
-#undef _LARGEFILE_SOURCE
+#cmakedefine _LARGEFILE_SOURCE @_LARGEFILE_SOURCE@
 
 /* Must be defined in order to enable huge-file support. */
-#undef _LARGE_FILE
+#cmakedefine _LARGE_FILE @_LARGE_FILE@
 
 /* Define to empty if `const' does not conform to ANSI C. */
-#undef const
+#cmakedefine const @const@
 
 /* Define to `long int' if <sys/types.h> does not define. */
-#undef off_t
+#cmakedefine off_t @off_t@
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
-#undef size_t
+#cmakedefine size_t @size_t@
 
 /* Define to empty if the keyword `volatile' does not work. Warning: valid
    code using `volatile' can become incorrect without. Disable with care. */
-#undef volatile
+#cmakedefine volatile @volatile@
 
-/* includes gaiaconfig.h */
-#include "./src/headers/spatialite/gaiaconfig.h"
+/* includes gaiaconfig@msvc@.h */
+#include "spatialite/gaiaconfig@msvc@.h"
