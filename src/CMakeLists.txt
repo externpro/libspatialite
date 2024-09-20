@@ -394,6 +394,9 @@ target_link_libraries(${lib_name} PUBLIC xpro::SQLite3
 if(NOT HAVE_UNISTD_H)
   target_compile_definitions(${lib_name} PRIVATE YY_NO_UNISTD_H)
 endif()
+if(WIN32)
+  target_compile_definitions(${lib_name} PRIVATE DLL_EXPORT)
+endif()
 set_target_properties(${lib_name} PROPERTIES
   PREFIX "" # strip off the "lib" prefix, since it's already libspatialite
   )

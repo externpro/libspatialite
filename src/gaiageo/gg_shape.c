@@ -5603,6 +5603,10 @@ gaiaReadDbfEntity_ex (gaiaDbfPtr dbf, int current_row, int *deleted,
 #endif /* ICONV enabled/disabled */
 
 #ifdef _WIN32
+/* GAIAGEO_DECLARE should come from spatialite/gaiageo.h */
+/* DLL_EXPORT is defined for Win32 in src/CMakeLists.txt */
+/* doesn't build on Windows without this define here */
+#define GAIAGEO_DECLARE __declspec(dllexport)
 GAIAGEO_DECLARE FILE *
 gaia_win_fopen (const char *path, const char *mode)
 {
