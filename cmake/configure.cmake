@@ -1,14 +1,17 @@
 include(xpcfg)
+set(libiconvTarget xpro::libiconv)
 set(sqliteTarget xpro::SQLite3)
-if(TARGET ${sqliteTarget})
-  get_target_property(sqliteIncludes ${sqliteTarget} INTERFACE_INCLUDE_DIRECTORIES)
-endif()
 set(zlibTarget xpro::zlibstatic)
-if(TARGET ${zlibTarget})
-  get_target_property(zlibIncludes ${zlibTarget} INTERFACE_INCLUDE_DIRECTORIES)
-endif()
+foreach(lib libiconv sqlite zlib)
+  if(TARGET ${${lib}Target})
+    get_target_property(${lib}Includes ${${lib}Target} INTERFACE_INCLUDE_DIRECTORIES)
+    if(NOT "${${lib}Includes}" MATCHES "-NOTFOUND")
+      list(APPEND reqIncs ${${lib}Includes})
+    endif()
+  endif()
+endforeach()
 cmake_push_check_state(RESET)
-set(CMAKE_REQUIRED_INCLUDES ${sqliteIncludes} ${zlibIncludes})
+set(CMAKE_REQUIRED_INCLUDES ${reqIncs})
 xpcfgCheckIncludeFile(dlfcn.h HAVE_DLFCN_H)
 xpcfgCheckIncludeFile(fcntl.h HAVE_FCNTL_H)
 xpcfgCheckIncludeFile(float.h HAVE_FLOAT_H)
@@ -98,10 +101,10 @@ set(OMIT_EPSG FALSE) # --enable-epsg : enables full EPSG dataset support
 set(OMIT_FREEXL TRUE) # --enable-freexml : enables FreeXL inclusion
 set(OMIT_GEOCALLBACKS FALSE) # TODO search
 set(OMIT_GEOS TRUE) # --enable-geos : enables GEOS inclusion (associated with RTTOPO)
-if(WIN32)
-  set(OMIT_ICONV TRUE) # --enable-iconv : enables ICONV inclusion # TODO requires libiconv
-else()
+if(HAVE_ICONV_H)
   set(OMIT_ICONV FALSE) # --enable-iconv : enables ICONV inclusion
+else()
+  set(OMIT_ICONV TRUE)
 endif()
 set(OMIT_KNN FALSE) # TODO search
 set(OMIT_MATHSQL FALSE) # --enable-mathsql : enables SQL math functions

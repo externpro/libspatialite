@@ -389,7 +389,7 @@ list(APPEND ${lib_name}_libsrcs ${wfs_srcs})
 add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
 target_include_directories(${lib_name} PUBLIC $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/cmake> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/headers> $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 target_link_libraries(${lib_name} PUBLIC xpro::SQLite3
-  PRIVATE xpro::zlibstatic # target_link_libraries
+  PRIVATE xpro::libiconv xpro::zlibstatic # target_link_libraries
   )
 if(NOT HAVE_UNISTD_H)
   target_compile_definitions(${lib_name} PRIVATE YY_NO_UNISTD_H)
@@ -408,7 +408,7 @@ if(NOT DEFINED XP_NAMESPACE)
   set(XP_NAMESPACE xpro)
 endif()
 set(targetsFile ${CMAKE_PROJECT_NAME}-targets)
-xpPackageDevel(TARGETS_FILE ${targetsFile} DEPS sqlite3 zlib LIBRARIES ${XP_NAMESPACE}::${lib_name})
+xpPackageDevel(TARGETS_FILE ${targetsFile} DEPS libiconv sqlite3 zlib LIBRARIES ${XP_NAMESPACE}::${lib_name})
 install(TARGETS ${lib_name} EXPORT ${targetsFile}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
