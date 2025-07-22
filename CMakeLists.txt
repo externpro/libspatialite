@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake ${CMAKE_CURRENT_LIST_DIR}/cmake)
 include(preproject)
-project(libspatialite VERSION 5.1.0.3)
+project(libspatialite VERSION 5.1.0.4)
 include(flags)
 include(GNUInstallDirs)
 if(TRUE)
