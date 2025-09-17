@@ -3,10 +3,17 @@ set(lib_name ${CMAKE_PROJECT_NAME})
 set(connection_cache_srcs
   connection_cache/alloc_cache.c
   connection_cache/gg_sequence.c
-  connection_cache/generator/code_generator.c
   )
 source_group(connection_cache FILES ${connection_cache_srcs})
 list(APPEND ${lib_name}_libsrcs ${connection_cache_srcs})
+########################################
+set(connection_cache_generator_srcs
+  connection_cache/generator/code_generator.c
+  connection_cache/generator/Makefile.am
+  connection_cache/generator/Makefile.in
+  connection_cache/generator/README.txt
+  )
+source_group(connection_cache\\generator FILES ${connection_cache_generator_srcs})
 ########################################
 set(control_points_srcs
   control_points/gaia_control_points.c
@@ -115,6 +122,7 @@ set(gaiageo_flex_srcs
   gaiageo/flex/kmlLexer.l
   gaiageo/flex/vanuatuLexer.l
   )
+source_group(gaiageo\\flex FILES ${gaiageo_flex_srcs})
 ########################################
 set(gaiageo_lemon_srcs
   gaiageo/lemon/Ewkt.y
@@ -124,9 +132,17 @@ set(gaiageo_lemon_srcs
   gaiageo/lemon/Makefile.in
   gaiageo/lemon/ReadMe.txt
   gaiageo/lemon/geoJSON.y
-  gaiageo/lemon/lemon_src
   gaiageo/lemon/vanuatuWkt.y
   )
+source_group(gaiageo\\lemon FILES ${gaiageo_lemon_srcs})
+########################################
+set(gaiageo_lemon_lemon_src_srcs
+  gaiageo/lemon/lemon_src/lemon.c
+  gaiageo/lemon/lemon_src/lempar.c
+  gaiageo/lemon/lemon_src/Makefile.am
+  gaiageo/lemon/lemon_src/Makefile.in
+  )
+source_group(gaiageo\\lemon\\lemon_src FILES ${gaiageo_lemon_lemon_src_srcs})
 ########################################
 set(geopackage_srcs
   geopackage/Makefile.am
@@ -333,7 +349,6 @@ set(srsinit_epsg_update_srcs
   srsinit/epsg_update/epsg_from_gdal.c
   )
 source_group(srsinit\\epsg_update FILES ${srsinit_epsg_update_srcs})
-#list(APPEND ${lib_name}_libsrcs ${srsinit_epsg_update_srcs})
 ########################################
 set(stored_procedures_srcs
   stored_procedures/Makefile.am
