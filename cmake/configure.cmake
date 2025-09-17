@@ -61,7 +61,6 @@ xpcfgLstatFollowsSlashedSymlink(LSTAT_FOLLOWS_SLASHED_SYMLINK)
 xpcfgStdcHeaders(STDC_HEADERS)
 xpcfgTimeWithSysTime(TIME_WITH_SYS_TIME)
 xpcfgTmInHdr(sys/time.h TM_IN_SYS_TIME)
-# cmakedefine entries in config.h.cmake.in
 xpcfgLtObjdir(LT_OBJDIR)
 set(NDEBUG 1) # Must be defined in order to disable debug mode.
 set(PACKAGE_BUGREPORT a.furieri@lqt.it)
@@ -84,9 +83,11 @@ cmake_pop_check_state()
 if(WIN32)
   set(msvc -msvc)
 endif()
-set(CONFIG_H_COMMENT "{CMAKE_BINARY_DIR}/cmake/config${msvc}.h.  Generated from cmake/config.h.cmake.in by cmake/configure.cmake.")
-configure_file(${CMAKE_CURRENT_LIST_DIR}/config.h.cmake.in ${CMAKE_BINARY_DIR}/CMakeFiles/config.h.cmake)
-configure_file(${CMAKE_BINARY_DIR}/CMakeFiles/config.h.cmake ${CMAKE_BINARY_DIR}/cmake/config${msvc}.h)
+xpcfgDotinFile("config.h.in" "cmake/config${msvc}.h")
+file(READ "${CMAKE_BINARY_DIR}/cmake/config${msvc}.h" configContent)
+string(REPLACE "./src/headers/spatialite/gaiaconfig.h" "spatialite/gaiaconfig${msvc}.h" configContent "${configContent}")
+file(WRITE "${CMAKE_BINARY_DIR}/cmake/config${msvc}.h" "${configContent}")
+########################################
 set(ENABLE_GCP FALSE) # --enable-gcp : enables Control Points (from Grass GIS)
 set(ENABLE_GEOPACKAGE TRUE) # --enable-geopackage : enables GeoPackage support
 set(ENABLE_LIBXML2 FALSE) # --enable-libxml2 : enables libxml2 inclusion # TODO find package
@@ -121,6 +122,4 @@ xpcfgSetDefineList(ENABLE_GCP ENABLE_GEOPACKAGE ENABLE_LIBXML2 ENABLE_MINIZIP EN
   )
 xpcfgTargetCpu(SPATIALITE_TARGET_CPU)
 set(SPATIALITE_VERSION ${CMAKE_PROJECT_VERSION})
-set(GAIACONFIG_H_COMMENT "{CMAKE_BINARY_DIR}/cmake/gaiaconfig${msvc}.h.  Generated from cmake/gaiaconfig.h.cmake.in by cmake/configure.cmake.")
-configure_file(${CMAKE_CURRENT_LIST_DIR}/gaiaconfig.h.cmake.in ${CMAKE_BINARY_DIR}/CMakeFiles/gaiaconfig.h.cmake)
-configure_file(${CMAKE_BINARY_DIR}/CMakeFiles/gaiaconfig.h.cmake ${CMAKE_BINARY_DIR}/cmake/spatialite/gaiaconfig${msvc}.h)
+xpcfgDotinFile("src/headers/spatialite/gaiaconfig.h.in" "cmake/spatialite/gaiaconfig${msvc}.h")
