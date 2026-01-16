@@ -416,14 +416,20 @@ set_target_properties(${lib_name} PROPERTIES
   PREFIX "" # strip off the "lib" prefix, since it's already libspatialite
   )
 ########################################
-if(NOT DEFINED XP_INSTALL_CMAKEDIR)
-  set(XP_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
-endif()
-if(NOT DEFINED XP_NAMESPACE)
-  set(XP_NAMESPACE xpro)
-endif()
 set(targetsFile ${CMAKE_PROJECT_NAME}-targets)
-xpPackageDevel(TARGETS_FILE ${targetsFile} DEPS geos libiconv sqlite3 zlib LIBRARIES ${XP_NAMESPACE}::${lib_name})
+if(DEFINED XP_NAMESPACE)
+  xpExternPackage(NAMESPACE ${XP_NAMESPACE}
+    TARGETS_FILE ${targetsFile} LIBRARIES ${lib_name}
+    BASE ${CMAKE_PROJECT_VERSION} XPDIFF "auto" DEPS geos libiconv sqlite3 zlib
+    WEB "https://www.gaia-gis.it/fossil/libspatialite/home"
+    DESC "extends capabilities of SQLite, enabling it to handle spatial data and perform spatial queries"
+    LICENSE "[MPL-1.1](https://www.gaia-gis.it/fossil/libspatialite/home 'MPL tri-license: choose MPL-1.1, GPL-2.0-or-later, LGPL-2.1-or-later')"
+    )
+  set(nameSpace NAMESPACE ${XP_NAMESPACE}::)
+  set(CMAKE_INSTALL_CMAKEDIR ${XP_INSTALL_CMAKEDIR})
+elseif(NOT DEFINED CMAKE_INSTALL_CMAKEDIR)
+  set(CMAKE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
+endif()
 install(TARGETS ${lib_name} EXPORT ${targetsFile}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -431,4 +437,4 @@ install(TARGETS ${lib_name} EXPORT ${targetsFile}
   )
 install(FILES headers/spatialite.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES ${headers_spatialite_srcs} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/spatialite)
-install(EXPORT ${targetsFile} DESTINATION ${XP_INSTALL_CMAKEDIR} NAMESPACE ${XP_NAMESPACE}::)
+install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} ${nameSpace})
