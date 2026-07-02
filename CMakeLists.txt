@@ -1,5 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
-set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES .devcontainer/cmake/xproinc.cmake)
+cmake_minimum_required(VERSION 4.3)
 project(libspatialite VERSION 5.1.0)
 option(BUILD_AUTOMAKE "build with automake" OFF)
 if(BUILD_AUTOMAKE)
