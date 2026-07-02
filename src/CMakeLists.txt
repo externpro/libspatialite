@@ -403,8 +403,8 @@ list(APPEND ${lib_name}_libsrcs ${wfs_srcs})
 ########################################
 add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
 target_include_directories(${lib_name} PUBLIC $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/cmake> $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/headers> $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-target_link_libraries(${lib_name} PUBLIC xpro::SQLite3
-  PRIVATE xpro::geos_c xpro::libiconv xpro::zlibstatic # target_link_libraries
+target_link_libraries(${lib_name} PUBLIC ${sqliteTarget}
+  PRIVATE ${geosTarget} ${libiconvTarget} ${zlibTarget} # target_link_libraries
   )
 if(NOT HAVE_UNISTD_H)
   target_compile_definitions(${lib_name} PRIVATE YY_NO_UNISTD_H)
@@ -417,15 +417,14 @@ set_target_properties(${lib_name} PROPERTIES
   )
 ########################################
 set(targetsFile ${CMAKE_PROJECT_NAME}-targets)
-if(DEFINED XP_NAMESPACE)
-  xpExternPackage(NAMESPACE ${XP_NAMESPACE}
-    TARGETS_FILE ${targetsFile} LIBRARIES ${lib_name}
-    BASE ${CMAKE_PROJECT_VERSION} XPDIFF "auto" DEPS geos libiconv sqlite3 zlib
+if(COMMAND xpExternPackage)
+  xpExternPackage(TARGETS_FILE ${targetsFile}
+    LIBRARIES ${lib_name} DEFAULT_TARGETS ${lib_name}
+    BASE ${CMAKE_PROJECT_VERSION} XPDIFF "auto"
     WEB "https://www.gaia-gis.it/fossil/libspatialite/home"
     DESC "extends capabilities of SQLite, enabling it to handle spatial data and perform spatial queries"
     LICENSE "[MPL-1.1](https://www.gaia-gis.it/fossil/libspatialite/home 'MPL tri-license: choose MPL-1.1, GPL-2.0-or-later, LGPL-2.1-or-later')"
     )
-  set(nameSpace NAMESPACE ${XP_NAMESPACE}::)
 elseif(NOT DEFINED CMAKE_INSTALL_CMAKEDIR)
   set(CMAKE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
 endif()
@@ -436,4 +435,4 @@ install(TARGETS ${lib_name} EXPORT ${targetsFile}
   )
 install(FILES headers/spatialite.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES ${headers_spatialite_srcs} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/spatialite)
-install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} ${nameSpace})
+install(EXPORT ${targetsFile} DESTINATION ${CMAKE_INSTALL_CMAKEDIR} NAMESPACE ${CMAKE_PROJECT_NAME}::)

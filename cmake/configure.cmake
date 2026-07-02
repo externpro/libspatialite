@@ -1,8 +1,4 @@
 include(xpcfg)
-set(geosTarget xpro::geos_c)
-set(libiconvTarget xpro::libiconv)
-set(sqliteTarget xpro::SQLite3)
-set(zlibTarget xpro::zlibstatic)
 foreach(lib geos libiconv sqlite zlib)
   if(TARGET ${${lib}Target})
     get_target_property(${lib}Includes ${${lib}Target} INTERFACE_INCLUDE_DIRECTORIES)
